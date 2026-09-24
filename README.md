@@ -39,3 +39,9 @@ A PostgreSQL project for tracking social media activity and discovering which po
  ┣ 📜 views_and_triggers.sql
  ┣ 📜 analytics.sql
  ┗ 📜 README.md
+🚀 Getting Started
+1. Create a PostgreSQL database.
+2. Run the schema script.
+3. Insert the sample data.
+4. Run the views and trigger scripts.
+5. Execute the analytics queries.
