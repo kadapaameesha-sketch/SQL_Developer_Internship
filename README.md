@@ -37,16 +37,16 @@ Create a SQL system to track and analyze likes, comments, and overall post engag
 
 ## 📁 Project Files
 
-📦 social-media-analytics
- ┣ 📜 01_schema_design.sql
- ┣ 📜 02_triggers.sql
- ┣ 📜 03_seed_data.sql
- ┣ 📜 04_views.sql
- ┣ 📜 05_window_rankings.sql
- ┣ 📜 06_engagement_reports.sql
- ┣ 📄 Brand Guidelines
- ┣ 📄 GEMINI.md
- ┗ 📄 README.md
+📦 social-media-analytics  
+ ┣ 📜 01_schema_design.sql  
+ ┣ 📜 02_triggers.sql  
+ ┣ 📜 03_seed_data.sql  
+ ┣ 📜 04_views.sql  
+ ┣ 📜 05_window_rankings.sql  
+ ┣ 📜 06_engagement_reports.sql  
+ ┣ 📄 Brand Guidelines  
+ ┣ 📄 GEMINI.md  
+ ┗ 📄 README.md  
 
 
 ## 🚀 Getting Started
