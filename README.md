@@ -1,6 +1,5 @@
 # 📊 Social Media Analytics Backend
 
-### 💬 Track likes. 💜 Measure engagement. 🏆 Find top posts.
 
 ### 📊 SQL Developer Internship — Task 10
 
