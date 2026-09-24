@@ -55,3 +55,6 @@ SELECT
     engagement_score,
     RANK() OVER (ORDER BY engagement_score DESC) AS ranking
 FROM post_engagement;
+## 🎯 Project Goal
+
+Turn social media activity into clear, useful engagement insights.
