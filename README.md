@@ -1,60 +1,63 @@
-📊 Social Media Analytics Backend
-An end-to-end relational database system designed in PostgreSQL to model core social networking interactions and track real-time post engagement metrics. This system implements automated engagement counters, rank-based analytics using window functions, and consolidated views for user activity reporting.
+📊Social Media Analytics Backend
+A PostgreSQL project that tracks social media activity and turns it into useful engagement insights. Explore which posts get the most likes and comments, rank top content, and generate reports.
+✨ Features
+- 👤 User accounts — store user information
+- 📝 Posts — track post content and creation dates
+- ❤️ Likes — record who liked each post
+- 💬 Comments — connect comments to users and posts
+- 📊 Analytics views — summarize post engagement
+- 🏆 Rankings — use window functions to find top posts
+- ⚙️ Triggers — update like counts automatically
+- 📤 Reports — query engagement data for export
+🗂️ Database Design
+Table	What it stores
+users	User account details
+posts	Posts created by users
+likes	Likes on posts
+comments	Comments on posts
 
-🎯 Key Objectives
-Database Architecture: Model relational connections between users, posts, likes, and comments with strict foreign key constraints and cascading rules.
 
-Automated Mechanics: Implement PostgreSQL triggers to update engagement counts automatically upon user interactions without relying on application-level logic.
+Primary and foreign keys connect the data, and constraints help keep records consistent.
+🚀 Getting Started
+1. Install PostgreSQL.
+2. Create a database for the project.
+3. Run the SQL scripts in order:
+   - Schema
+   - Sample data
+   - Views and triggers
+   - Analytics queries
+4. Run the report queries to explore engagement.
+Update the script names below to match the files in your repository.
 
-Advanced Analytics: Utilize SQL window functions and database views to rank top-performing content and compute multi-metric engagement scores.
-
-Reporting: Export aggregated engagement metrics and user interaction summaries for downstream business analytics.
-
-🛠️ Tech Stack & Concepts
-Database Management System: PostgreSQL
-
-SQL Concepts Applied:
-
-DDL (Schema Design, Constraints, Indexes)
-
-DML (Seeding Realistic Datasets)
-
-PL/pgSQL Triggers & Functions (Real-time updates)
-
-Window Functions (DENSE_RANK(), ROW_NUMBER(), AVG() OVER())
-
-Database Views & Aggregations
-
-📐 Database Schema Overview
- [ Users ] ───< [ Posts ] ───< [ Likes ]
-                   │
-                   └───< [ Comments ]
-users: Stores user profiles and registration timestamps.
-
-posts: Stores post content, publish dates, and cached engagement counts (likes, comments).
-
-likes: Tracks user-post like relationships (UNIQUE(user_id, post_id)).
-
-comments: Tracks user comments linked to specific posts.
-
-🌟 Features & Highlights
-1. Dynamic Engagement Triggers
-Automated BEFORE/AFTER triggers increment and decrement likes_count and comments_count directly on the posts table whenever rows are inserted or deleted in the likes or comments tables.
-
-2. Custom Engagement Scoring
-An integrated metric calculating total interactions over time:
-
-Engagement Score=(Likes×1.0)+(Comments×2.0)
-3. Window Function Ranking
-Utilizes DENSE_RANK() over partition windows to analyze high-performing posts relative to global averages and categorical benchmarks without heavy subquery re-execution.
-
-🚀 Deliverables Included
-schema.sql: Complete DDL scripts for table creation, constraints, and indexes.
-
-triggers.sql: PL/pgSQL trigger functions for automatic counter updates.
-
-seed.sql: Sample data population script mimicking realistic social media activity.
-
-analytics_views.sql: SQL views for top-performing posts, engagement scores, and user activity summaries.
-
-ranking_queries.sql: Queries leveraging window functions for trending content discovery.
+📈 Example: Engagement Score
+This example combines likes and comments into one score:
+SELECT
+    p.post_id,
+    p.content,
+    COUNT(DISTINCT l.user_id) AS like_count,
+    COUNT(DISTINCT c.comment_id) AS comment_count,
+    COUNT(DISTINCT l.user_id) + COUNT(DISTINCT c.comment_id) AS engagement_score
+FROM posts p
+LEFT JOIN likes l ON l.post_id = p.post_id
+LEFT JOIN comments c ON c.post_id = p.post_id
+GROUP BY p.post_id, p.content
+ORDER BY engagement_score DESC;
+🏅 Example: Rank Posts
+SELECT
+    post_id,
+    engagement_score,
+    RANK() OVER (ORDER BY engagement_score DESC) AS engagement_rank
+FROM post_engagement;
+post_engagement is an example view name. Replace it with the name used in your project.
+📦 Project Structure
+.
+├── schema.sql
+├── sample_data.sql
+├── views_and_triggers.sql
+├── analytics.sql
+└── README.md
+🛠️ Built With
+- PostgreSQL
+- SQL
+📄 License
+Add a LICENSE file if you’d like to specify how others may use this project.
