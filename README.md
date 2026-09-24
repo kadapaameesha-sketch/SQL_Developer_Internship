@@ -1,6 +1,5 @@
 # 📊 Social Media Analytics Backend
 
-
 ### 📊 SQL Developer Internship — Task 10
 
 **By K. Ameesha**
@@ -37,48 +36,6 @@ Create a SQL system to track and analyze likes, comments, and overall post engag
 | 💬 `comments` | Comments on posts |
 
 ## 📁 Project Files
-
-```text
-📦 social-media-analytics
- # 💜 Social Media Analytics Backend
-
-### 📊 SQL Developer Internship — Task 10
-
-**By K. Ameesha**
-
-A PostgreSQL project for tracking post engagement and finding top-performing social media content.
-
----
-
-## 🎯 Objective
-
-Create a SQL system to track and analyze likes, comments, and overall post engagement.
-
-## 🛠️ Tools
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-
-## ✨ Features
-
-❤️ Track likes on posts  
-💬 Store comments  
-👤 Connect users with their posts and activity  
-📈 Calculate engagement scores  
-🏆 Rank top-performing posts with window functions  
-⚙️ Update like counts automatically using triggers  
-📤 Generate engagement reports
-
-## 🗂️ Database Design
-
-| Table | Description |
-|---|---|
-| 👤 `users` | User account details |
-| 📝 `posts` | Posts created by users |
-| ❤️ `likes` | Likes given to posts |
-| 💬 `comments` | Comments on posts |
-
-## 📁 Project Files
-
 
 📦 social-media-analytics
  ┣ 📜 01_schema_design.sql
@@ -90,7 +47,7 @@ Create a SQL system to track and analyze likes, comments, and overall post engag
  ┣ 📄 Brand Guidelines
  ┣ 📄 GEMINI.md
  ┗ 📄 README.md
-```text
+
 
 ## 🚀 Getting Started
 
